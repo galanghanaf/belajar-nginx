@@ -2,7 +2,7 @@
 
 ## Build Nginx from Source
 
-- Download Source Nginx-nya.
+- Download Source Nginx di https://nginx.org/en/download.html
 ```
 wget https://nginx.org/download/nginx-1.18.0.tar.gz
 ```
