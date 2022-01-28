@@ -35,26 +35,80 @@ sudo apt install libpcre3 libpcre3-dev zlib1g zlib1g-dev libssl-dev
 
 - Lalu compile hasil konfigurasi tadi.
 ```
-make
+sudo make
 ```
 
 - Setelah itu install
 ```
-make install
+sudo make install
 ```
 
 - Untuk menjalan nginx, cukup ketik nginx diterminal lalu enter.
 ```
-nginx
+sudo nginx
 ```
 
 - Berikut adalah cara menggunakan dan melihat versi nginx.
 ```
-nginx -h
+sudo nginx -h
 ```
 ```
-nginx -V
+sudo nginx -V
 ```
+
+## Adding Nginx Systemd Service File
+- Apabila Nginx masih running, dihentikan terlebih dahulu.
 ```
-nginx -s stop
+sudo nginx -s stop
+```
+
+- Masuk ke website https://www.nginx.com/resources/wiki/start/topics/examples/initscripts/
+- Setelah itu pilih "NGINX systemd service file"
+- Lalu buat file sesuai yang ada pada https://www.nginx.com/resources/wiki/start/topics/examples/systemd/
+```
+sudo vim /lib/systemd/system/nginx.service
+```
+- Masukan scriptnya, lalu save.
+```
+[Unit]
+Description=The NGINX HTTP and reverse proxy server
+After=syslog.target network-online.target remote-fs.target nss-lookup.target
+Wants=network-online.target
+
+[Service]
+Type=forking
+PIDFile=/run/nginx.pid
+ExecStartPre=/usr/sbin/nginx -t
+ExecStart=/usr/sbin/nginx
+ExecReload=/usr/sbin/nginx -s reload
+ExecStop=/bin/kill -s QUIT $MAINPID
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
+```
+
+- Cek apakah nginx systemd servicenya terdeteksi.
+```
+sudo systemctl status nginx
+```
+
+- Berikut untuk menjalankan nginxnya.
+```
+sudo systemctl start nginx
+```
+
+- Berikut untuk memuat ulang nginxnya.
+```
+sudo systemctl restart nginx
+```
+
+- Berikut untuk menghentikan nginxnya.
+```
+sudo systemctl stop nginx
+```
+
+- Berikut adalah perintah agar nginx selalu berjalan pada saat os booting.
+```
+sudo systemctl enable nginx
 ```
