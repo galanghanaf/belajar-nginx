@@ -18,6 +18,7 @@ cd nginx-1.18.0/
 ```
 
 - Sebelum melakukan compiling, diharapkan menginstal alat compilingnya terlebih dahulu.
+(Debian/Ubuntu)
 ```
 sudo apt update
 ```
@@ -26,6 +27,16 @@ sudo apt install build-essential
 ```
 ```
 sudo apt install libpcre3 libpcre3-dev zlib1g zlib1g-dev libssl-dev
+```
+(RHEL/CentOS)
+```
+sudo dnf update
+```
+```
+sudo dnf groupinstall "Development Tools"
+```
+```
+sudo dnf install pcre pcre-devel zlib zlib-devel openssl openssl-devel
 ```
 
 - Setelah itu lakukan Konfigurasi.
