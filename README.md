@@ -18,7 +18,7 @@ cd nginx-1.18.0/
 ```
 
 - Sebelum melakukan compiling, diharapkan menginstal alat compilingnya terlebih dahulu.
-(Debian/Ubuntu)
+- (Debian/Ubuntu)
 ```
 sudo apt update
 ```
@@ -28,7 +28,7 @@ sudo apt install build-essential
 ```
 sudo apt install libpcre3 libpcre3-dev zlib1g zlib1g-dev libssl-dev
 ```
-(RHEL/CentOS)
+- (RHEL/CentOS)
 ```
 sudo dnf update
 ```
