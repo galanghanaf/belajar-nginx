@@ -130,3 +130,8 @@ sudo systemctl stop nginx
 ```
 sudo systemctl enable nginx
 ```
+
+- Lokasi index.html (Debian)
+```
+/usr/local/nginx/html
+```
