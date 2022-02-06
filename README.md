@@ -54,6 +54,13 @@ sudo make
 sudo make install
 ```
 
+- Sebelum itu lakukan Open port 80 & 443 untuk RHEL/CentOS 
+```
+sudo firewall-cmd --permanent --zone=public --add-service=http
+sudo firewall-cmd --permanent --zone=public --add-service=https
+sudo firewall-cmd --reload
+```
+
 - Untuk menjalan nginx, cukup ketik nginx diterminal lalu enter.
 ```
 sudo nginx
